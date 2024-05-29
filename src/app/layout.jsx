@@ -1,5 +1,5 @@
 import "../Assets/css/main.css";
-import { ProviderFunc } from "../Redux-Store/ProviderFunc"; // Update the import path
+import { ProviderFunc } from "../Redux-Store/ProviderFunc";
 import Header from "../Components/Header/Header";
 import Sidebar from "../Components/Sidebar/Sidebar";
 import Player from "../Components/Player/Player";

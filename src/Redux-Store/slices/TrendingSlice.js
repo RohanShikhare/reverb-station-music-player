@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const TrendingSlice = createSlice({
   name: "trendingSongs",
   initialState: {
-    trendingSongs: false,
+    trendingSongs: [],
   },
   reducers: {
     setTrendingSongs: (state, action) => {
