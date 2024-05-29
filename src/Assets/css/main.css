@@ -1,0 +1,790 @@
+@font-face {
+  font-family: "gv-reg";
+  src: url(../fonts/GreatVibes-Regular.ttf);
+}
+@font-face {
+  font-family: "poppins-light";
+  src: url(../fonts/Poppins-Light.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+input {
+  margin: 0;
+}
+
+html,
+body {
+  font-size: 66.67%;
+  font-family: "poppins-light";
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.Main-Content::-webkit-scrollbar {
+  width: 5px;
+  background-color: #101823;
+  border-radius: 1rem;
+}
+
+.Main-Content::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.Main-Content::-webkit-scrollbar-track {
+  background-color: rgb(87, 87, 87);
+  border-radius: 1rem;
+  margin: 8px 0;
+}
+
+.day header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #101823;
+  justify-content: space-between;
+  height: 10vh;
+}
+.day header .title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.day header .title-wrap img {
+  padding: 0.3rem;
+}
+.day header .title-wrap h1 {
+  margin: 0;
+  padding: 0.3rem;
+  font-size: 2rem;
+  color: white;
+  font-family: "gv-reg";
+  margin-top: 1rem;
+  border-bottom: 1px solid white;
+}
+.day header .last-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.day header .last-block .search-wrap {
+  position: relative;
+}
+.day header .last-block .search-wrap span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  position: absolute;
+  top: 0.3rem;
+  left: 0.5rem;
+  z-index: 2;
+}
+.day header .last-block .search-wrap span svg {
+  height: 2rem;
+  width: 2rem;
+}
+.day header .last-block .search-wrap input {
+  width: 36rem;
+  border: none;
+  position: relative;
+  height: 3rem;
+  font-size: 1.6rem;
+  background-color: #363a45;
+  border-radius: 2rem;
+  padding-left: 3.5rem;
+  color: white;
+  caret-color: black;
+}
+.day header .last-block .search-wrap input:focus-visible {
+  outline: none;
+}
+.day header .last-block .mode-wrap {
+  background-color: #363a45;
+  display: flex;
+  align-items: center;
+  border-radius: 2rem;
+  position: relative;
+}
+.day header .last-block .mode-wrap .day-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.day header .last-block .mode-wrap .day-mode svg {
+  position: relative;
+  z-index: 2;
+  fill: gray !important;
+  height: 2rem !important;
+  width: 2rem !important;
+}
+.day header .last-block .mode-wrap .day-mode:hover {
+  background-color: silver;
+}
+.day header .last-block .mode-wrap .day-mode:hover svg {
+  fill: black !important;
+}
+.day header .last-block .mode-wrap .day-mode.active:hover {
+  background-color: white;
+}
+.day header .last-block .mode-wrap .day-mode.active:hover svg {
+  fill: orange !important;
+}
+.day header .last-block .mode-wrap .day-mode.active svg {
+  fill: orange !important;
+}
+.day header .last-block .mode-wrap .night-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.day header .last-block .mode-wrap .night-mode svg {
+  position: relative;
+  z-index: 2;
+  fill: gray !important;
+  height: 2rem !important;
+  width: 2rem !important;
+}
+.day header .last-block .mode-wrap .night-mode:hover {
+  background-color: silver;
+}
+.day header .last-block .mode-wrap .night-mode:hover svg {
+  fill: black !important;
+}
+.day header .last-block .mode-wrap .night-mode.active:hover {
+  background-color: white;
+}
+.day header .last-block .mode-wrap .night-mode.active:hover svg {
+  fill: gray !important;
+}
+.day header .last-block .mode-wrap .night-mode.active svg {
+  fill: gray !important;
+}
+.day header .last-block .mode-wrap .color-slider {
+  border-radius: 2rem;
+  background-color: white;
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  left: 3rem;
+  transition: 0.4s all ease;
+}
+.day header .last-block .mode-wrap .color-slider.day-mode {
+  left: 0;
+}
+.day header .last-block .mode-wrap .color-slider.night-mode {
+  left: 3rem;
+}
+.day main {
+  display: flex;
+  height: 90vh;
+  background-color: #101823;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  transition: all 0.5s ease;
+}
+.day main nav {
+  height: 100%;
+  background-color: #101823;
+  transition: all 0.5s ease;
+}
+.day main nav ul {
+  height: 100%;
+  padding: 0;
+  transition: all 0.4s ease;
+}
+.day main nav ul li {
+  position: relative;
+  text-wrap: nowrap;
+  padding: 1.5rem 0;
+  margin: 0 1.5rem;
+  gap: 1.2rem;
+  align-items: center;
+  font-family: "poppins-light";
+  font-size: 1.6rem;
+  color: gray;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.day main nav ul li::after {
+  content: "";
+  height: 1px;
+  width: 0;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: all 0.4s ease;
+}
+.day main nav ul li span {
+  text-wrap: nowrap;
+  transition: all 0.3s ease;
+  padding-left: 1rem;
+}
+.day main nav ul li svg {
+  height: 2rem !important;
+  width: 2rem !important;
+  fill: gray !important;
+}
+.day main nav ul li:hover {
+  color: white;
+}
+.day main nav ul li:hover svg {
+  fill: white !important;
+}
+.day main nav ul li:hover::after {
+  width: 100%;
+}
+.day main nav ul li.active {
+  color: white;
+  border-bottom: 1px solid white;
+  transition: all 0.4s ease;
+}
+.day main nav ul li.active svg {
+  fill: white !important;
+  transition: all 0.4s ease;
+}
+.day main nav ul li .sideTooltip {
+  opacity: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: black;
+  font-size: 1rem;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 1.6rem;
+  left: 4.5rem;
+  z-index: -5;
+  transition: all 0.3s ease;
+  font-family: "poppins-light";
+}
+.day main nav ul li .sideTooltip:before {
+  content: "";
+  opacity: 0;
+  z-index: -5;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: -0.9rem;
+  transform: translateY(-50%);
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+}
+.day main nav.closed {
+  width: 55px;
+  transition: all 0.5s ease;
+}
+.day main nav.closed ul li span {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.day main nav.closed ul li svg:hover ~ .sideTooltip {
+  opacity: 1;
+  z-index: 2;
+}
+.day main nav.closed ul li svg:hover ~ .sideTooltip::before {
+  opacity: 1;
+  z-index: 2;
+}
+.day main .Main-Content {
+  height: 100%;
+  flex-grow: 1;
+  border-radius: 2rem;
+  background-color: white;
+  transition: all 0.5s ease;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+.day main .Main-Content .Trending-Wrap {
+  background-color: black;
+  padding-bottom: 5.6rem;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider {
+  width: 100%;
+  height: 30rem;
+  overflow: hidden;
+  position: relative;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide {
+  flex: 0 0 100%;
+  display: flex;
+  width: 100%;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/trending1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody.SlideOne {
+  background-image: url("../img/trending1.jpg");
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody.SlideTwo {
+  background-image: url("../img/trending2.jpg");
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody.SlideThree {
+  background-image: url("../img/trending3.jpg");
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody.SlideFour {
+  background-image: url("../img/trending4.jpg");
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody .slideContent {
+  position: absolute;
+  bottom: 2rem;
+  padding: 2rem;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody .slideContent .slideTitle,
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody .slideContent .slideTagLine {
+  font-size: 1.6rem;
+  margin: 0;
+  color: white;
+  padding-bottom: 0.5rem;
+  font-family: "poppins-light";
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody .slideContent .slideDescription {
+  line-height: 0.7;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  color: white;
+  font-family: "poppins-light";
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody .slideContent .slidePlay {
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  color: black;
+  border-radius: 1.5rem;
+  background-color: white;
+  font-family: "poppins-light";
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .slide-container .slide .slideBody .slideContent .slidePlay:hover {
+  background-color: black;
+  color: white;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .progress-btns {
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  transform: translateX(-100%);
+  z-index: 2;
+  display: flex;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .progress-btns .slide-button .progress-bar {
+  height: 0.3rem;
+  width: 5rem;
+  border-radius: 2rem;
+  background-color: #363a45;
+  margin: 1rem;
+  cursor: pointer;
+}
+.day main .Main-Content .Trending-Wrap .progress-slider .progress-btns .slide-button .progress-bar .progress {
+  height: 100%;
+  background-color: white;
+}
+.day main .Main-Content .Trending-Wrap .slider-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider-topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider-topbar .slider-title {
+  font-size: 1.6rem;
+  color: white;
+  margin: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: "poppins-light";
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider-topbar .buttons button {
+  border: none;
+  padding-left: 1rem;
+  background-color: transparent;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider-topbar .buttons button svg {
+  height: 3rem !important;
+  width: 3rem !important;
+  fill: #363a45 !important;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider-topbar .buttons button:disabled svg {
+  fill: #101823 !important;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider .card {
+  flex: 0 0 20%;
+  padding: 1rem;
+  background-color: black;
+  border: 1px solid transparent;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider .card:hover {
+  background-color: white;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider .card:hover .album-author, .day main .Main-Content .Trending-Wrap .slider-container .slider .card:hover .album-title {
+  color: black;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider .card img {
+  width: 100%;
+  height: 20rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider .card .album-title {
+  font-size: 1.6rem;
+  font-family: "poppins-light";
+  margin: 0;
+  color: white;
+  padding-top: 0.5rem;
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+.day main .Main-Content .Trending-Wrap .slider-container .slider .card .album-author {
+  font-size: 1.4rem;
+  font-family: "poppins-light";
+  margin: 0;
+  color: rgb(195, 195, 195);
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap {
+  padding: 2rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-topbar .ts-title {
+  font-size: 1.6rem;
+  font-family: "poppins-light";
+  margin: 0;
+  color: white;
+  padding: 1rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-topbar .ts-view-all {
+  border: none;
+  background-color: transparent;
+  font-size: 1.4rem;
+  color: gray;
+  font-family: "poppins-light";
+  padding: 1rem 0;
+  margin: 0 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-topbar .ts-view-all::after {
+  content: "";
+  position: absolute;
+  height: 0.1rem;
+  width: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-topbar .ts-view-all:hover {
+  color: white;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-topbar .ts-view-all:hover::after {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul {
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "poppins-light";
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #363a45;
+  cursor: pointer;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap .ts-number {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  color: #363a45;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap .song-info {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap .song-info .song-img-wrap {
+  padding: 0.5rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap .song-info .song-img-wrap img {
+  height: 5rem;
+  width: 5rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap .song-info .song-info-wrap {
+  padding: 0.5rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap .song-info .song-info-wrap .song-title {
+  font-size: 1.6rem;
+  color: #363a45;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-wrap .song-info .song-info-wrap .song-author {
+  font-size: 1.2rem;
+  color: #363a45;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .artist-wrap {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .artist-wrap svg {
+  fill: #363a45 !important;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .artist-wrap .artist-name {
+  font-size: 1.4rem;
+  color: #363a45;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .streams-wrap {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .streams-wrap svg {
+  fill: #363a45 !important;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .streams-wrap .streams-no {
+  font-size: 1.4rem;
+  color: #363a45;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-category {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-category svg {
+  fill: #363a45 !important;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-category .category-name {
+  font-size: 1.4rem;
+  color: #363a45;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .runtime-wrap {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .runtime-wrap svg {
+  fill: #363a45 !important;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .runtime-wrap .runtime-no {
+  font-size: 1.4rem;
+  color: #363a45;
+  transition: all 0.3s ease;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .favourite {
+  padding: 0.5rem;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .favourite svg {
+  fill: #363a45 !important;
+  transition: all 0.3s ease;
+  height: 2rem !important;
+  width: 2rem !important;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .favourite.active svg {
+  fill: red !important;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover {
+  border-bottom: 1px solid white;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .ts-number,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .song-title,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .song-author,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .artist-name,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .streams-no,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .category-name,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .runtime-no {
+  color: white !important;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover svg {
+  fill: white !important;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active {
+  border-bottom: 1px solid white;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .ts-number,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .song-title,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .song-author,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .artist-name,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .streams-no,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .category-name,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .runtime-no {
+  color: white !important;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active svg {
+  fill: white !important;
+}
+.day main .Main-Content footer {
+  position: sticky;
+  bottom: 0px;
+  max-width: 1210px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #363a45;
+  padding: 1rem 2rem;
+}
+.day main .Main-Content footer .song-info {
+  display: flex;
+  align-items: center;
+}
+.day main .Main-Content footer .song-info .song-img {
+  padding: 0.5rem;
+  border-radius: 2rem;
+  height: 4rem;
+  width: 4rem;
+}
+.day main .Main-Content footer .song-info .song-img img {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.day main .Main-Content footer .song-info .song-details .song-name {
+  font-size: 1.6rem;
+  color: white;
+  margin: 0;
+  font-family: "poppins-light";
+  cursor: pointer;
+}
+.day main .Main-Content footer .song-info .song-details .song-artist {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  font-family: "poppins-light";
+  cursor: pointer;
+}
+.day main .Main-Content footer .control-btns {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.day main .Main-Content footer .control-btns svg {
+  fill: white !important;
+  height: 2rem !important;
+  width: 2rem !important;
+  cursor: pointer;
+}
+.day main .Main-Content footer .control-btns span svg path {
+  fill: white !important;
+}
+.day main .Main-Content footer .track-record {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.day main .Main-Content footer .track-record .currentTime,
+.day main .Main-Content footer .track-record .totalTime {
+  font-size: 1.4rem;
+  color: white;
+  font-family: "poppins-light";
+}
+.day main .Main-Content footer .track-record .runtime svg {
+  height: 3rem !important;
+  width: 2rem !important;
+  fill: white !important;
+}
+.day main .Main-Content footer .options {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.day main .Main-Content footer .options svg {
+  fill: white !important;
+  height: 2rem !important;
+  width: 2rem !important;
+  cursor: pointer;
+}/*# sourceMappingURL=main.css.map */

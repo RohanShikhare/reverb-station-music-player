@@ -1,0 +1,26 @@
+@mixin icon-div {
+  border-radius: 50%;
+  padding: 1rem;
+  background-color: #232325;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .5s ease;
+  margin: 0 1rem;
+  svg {
+    fill: white !important;
+    height: 2rem;
+    width: 2rem;
+    transition: all .5s ease;
+    position: relative;
+    z-index: 1;
+  }
+  &:hover{
+    background-color: white;
+    svg{
+        fill: black !important;
+    }
+  }
+}
+

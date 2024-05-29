@@ -1,0 +1,826 @@
+@font-face {
+  font-family: "gv-reg";
+  src: url(../fonts/GreatVibes-Regular.ttf);
+}
+@font-face {
+  font-family: "poppins-light";
+  src: url(../fonts/Poppins-Light.ttf);
+}
+@import "./_media";
+@import "./_mixin";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+input {
+  margin: 0;
+}
+html,
+body {
+  font-size: 66.67%;
+  font-family: "poppins-light";
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+.Main-Content::-webkit-scrollbar {
+  width: 5px;
+  background-color: #101823;
+  border-radius: 1rem;
+}
+.Main-Content::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: white;
+}
+.Main-Content::-webkit-scrollbar-track {
+  background-color: rgb(87, 87, 87);
+  border-radius: 1rem;
+  margin: 8px 0;
+}
+
+//Main Parent Div :  Day Mode
+.day {
+  //Header Component
+  header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #101823;
+    justify-content: space-between;
+    height: 10vh;
+    .title-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      cursor: pointer;
+      img {
+        padding: 0.3rem;
+      }
+      h1 {
+        margin: 0;
+        padding: 0.3rem;
+        font-size: 2rem;
+        color: white;
+        font-family: "gv-reg";
+        margin-top: 1rem;
+        border-bottom: 1px solid white;
+      }
+    }
+    .last-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      .search-wrap {
+        position: relative;
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.3rem;
+          position: absolute;
+          top: 0.3rem;
+          left: 0.5rem;
+          z-index: 2;
+          svg {
+            height: 2rem;
+            width: 2rem;
+          }
+        }
+        input {
+          width: 36rem;
+          border: none;
+          position: relative;
+          height: 3rem;
+          font-size: 1.6rem;
+          background-color: #363a45;
+          border-radius: 2rem;
+          padding-left: 3.5rem;
+          color: white;
+          caret-color: black;
+          &:focus-visible {
+            outline: none;
+          }
+        }
+      }
+      .mode-wrap {
+        background-color: #363a45;
+        display: flex;
+        align-items: center;
+        border-radius: 2rem;
+        position: relative;
+        .day-mode {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem;
+          border-radius: 2rem;
+          cursor: pointer;
+          svg {
+            position: relative;
+            z-index: 2;
+            fill: gray !important;
+            height: 2rem !important;
+            width: 2rem !important;
+          }
+          &:hover {
+            background-color: silver;
+            svg {
+              fill: black !important;
+            }
+          }
+          &.active {
+            &:hover {
+              background-color: white;
+              svg {
+                fill: orange !important;
+              }
+            }
+            svg {
+              fill: orange !important;
+            }
+          }
+        }
+        .night-mode {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem;
+          border-radius: 2rem;
+          cursor: pointer;
+          svg {
+            position: relative;
+            z-index: 2;
+            fill: gray !important;
+            height: 2rem !important;
+            width: 2rem !important;
+          }
+          &:hover {
+            background-color: silver;
+            svg {
+              fill: black !important;
+            }
+          }
+          &.active {
+            &:hover {
+              background-color: white;
+              svg {
+                fill: gray !important;
+              }
+            }
+            svg {
+              fill: gray !important;
+            }
+          }
+        }
+        .color-slider {
+          border-radius: 2rem;
+          background-color: white;
+          height: 3rem;
+          width: 3rem;
+          position: absolute;
+          left: 3rem;
+          transition: 0.4s all ease;
+          &.day-mode {
+            left: 0;
+          }
+          &.night-mode {
+            left: 3rem;
+          }
+        }
+      }
+    }
+  }
+
+  //Main Children
+  main {
+    display: flex;
+    height: 90vh;
+    background-color: #101823;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    transition: all 0.5s ease;
+
+    //Nav Component
+    nav {
+      height: 100%;
+      background-color: #101823;
+      transition: all 0.5s ease;
+      ul {
+        height: 100%;
+        padding: 0;
+        transition: all 0.4s ease;
+        li {
+          position: relative;
+          text-wrap: nowrap;
+          padding: 1.5rem 0;
+          margin: 0 1.5rem;
+          gap: 1.2rem;
+          align-items: center;
+          font-family: "poppins-light";
+          font-size: 1.6rem;
+          color: gray;
+          cursor: pointer;
+          transition: all 0.4s ease;
+          &::after {
+            content: "";
+            height: 1px;
+            width: 0;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: all 0.4s ease;
+          }
+          span {
+            text-wrap: nowrap;
+            transition: all 0.3s ease;
+            padding-left: 1rem;
+          }
+          svg {
+            height: 2rem !important;
+            width: 2rem !important;
+            fill: gray !important;
+          }
+          &:hover {
+            color: white;
+            svg {
+              fill: white !important;
+            }
+            &::after {
+              width: 100%;
+            }
+          }
+          &.active {
+            color: white;
+            border-bottom: 1px solid white;
+            transition: all 0.4s ease;
+            svg {
+              fill: white !important;
+              transition: all 0.4s ease;
+            }
+          }
+          .sideTooltip {
+            opacity: 0;
+            width: fit-content;
+            color: black;
+            font-size: 1rem;
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            position: absolute;
+            top: 1.6rem;
+            left: 4.5rem;
+            z-index: -5;
+            transition: all 0.3s ease;
+            font-family: "poppins-light";
+            &:before {
+              content: "";
+              opacity: 0;
+              z-index: -5;
+              transition: all 0.3s ease;
+              position: absolute;
+              top: 50%;
+              left: -0.9rem;
+              transform: translateY(-50%);
+              border-width: 0.5rem;
+              border-style: solid;
+              border-color: transparent white transparent transparent;
+            }
+          }
+        }
+      }
+      &.closed {
+        width: 55px;
+        transition: all 0.5s ease;
+        ul {
+          li {
+            span {
+              transition: all 0.3s ease;
+              opacity: 0;
+            }
+
+            svg:hover ~ .sideTooltip {
+              opacity: 1;
+              z-index: 2;
+            }
+            svg:hover ~ .sideTooltip::before {
+              opacity: 1;
+              z-index: 2;
+            }
+          }
+        }
+      }
+    }
+
+    //Main Content
+
+    .Main-Content {
+      height: 100%;
+      flex-grow: 1;
+      border-radius: 2rem;
+      background-color: white;
+      transition: all 0.5s ease;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      position: relative;
+      //Trending Component
+      .Trending-Wrap {
+        background-color: black;
+        padding-bottom: 5.6rem;
+        //homeSlider
+        .progress-slider {
+          width: 100%;
+          height: 30rem;
+          overflow: hidden;
+          position: relative;
+          .slide-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+            .slide {
+              flex: 0 0 100%;
+              display: flex;
+              width: 100%;
+              .slideBody {
+                width: 100%;
+                height: 100%;
+                background-image: url("../img/trending1.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: relative;
+                &.SlideOne {
+                  background-image: url("../img/trending1.jpg");
+                }
+                &.SlideTwo {
+                  background-image: url("../img/trending2.jpg");
+                }
+                &.SlideThree {
+                  background-image: url("../img/trending3.jpg");
+                }
+                &.SlideFour {
+                  background-image: url("../img/trending4.jpg");
+                }
+                .slideContent {
+                  position: absolute;
+                  bottom: 2rem;
+                  padding: 2rem;
+                  .slideTitle,
+                  .slideTagLine {
+                    font-size: 1.6rem;
+                    margin: 0;
+                    color: white;
+                    padding-bottom: 0.5rem;
+                    font-family: "poppins-light";
+                  }
+                  .slideDescription {
+                    line-height: 0.7;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    margin: 0;
+                    padding-bottom: 0.5rem;
+                    color: white;
+                    font-family: "poppins-light";
+                  }
+                  .slidePlay {
+                    border: none;
+                    font-size: 1.8rem;
+                    padding: 0.2rem 1rem;
+                    text-align: center;
+                    color: black;
+                    border-radius: 1.5rem;
+                    background-color: white;
+                    font-family: "poppins-light";
+                    transition: all 0.3s ease;
+                    &:hover {
+                      background-color: black;
+                      color: white;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .progress-btns {
+            position: absolute;
+            top: 0px;
+            left: 100%;
+            transform: translateX(-100%);
+            z-index: 2;
+            display: flex;
+            .slide-button {
+              .progress-bar {
+                height: 0.3rem;
+                width: 5rem;
+                border-radius: 2rem;
+                background-color: #363a45;
+                margin: 1rem;
+                cursor: pointer;
+                .progress {
+                  height: 100%;
+                  background-color: white;
+                }
+              }
+            }
+          }
+        }
+        //Albums-carousel
+        .slider-container {
+          width: 100%;
+          overflow: hidden;
+          padding: 1rem 0;
+          .slider-topbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            align-items: center;
+            .slider-title {
+              font-size: 1.6rem;
+              color: white;
+              margin: 0;
+              width: fit-content;
+              font-family: "poppins-light";
+            }
+            .buttons {
+              button {
+                border: none;
+                padding-left: 1rem;
+                background-color: transparent;
+                svg {
+                  height: 3rem !important;
+                  width: 3rem !important;
+                  fill: #363a45 !important;
+                }
+                &:disabled {
+                  svg {
+                    fill: #101823 !important;
+                  }
+                }
+              }
+            }
+          }
+          .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            .card {
+              flex: 0 0 calc(100% / 5);
+              padding: 1rem;
+              background-color: black;
+              border: 1px solid transparent;
+              border-radius: 2rem;
+              transition: all 0.3s ease;
+              &:hover {
+                background-color: white;
+                .album-author,.album-title{
+                  color: black;
+                }
+              }
+              img {
+                width: 100%;
+                height: 20rem;
+                border-radius: 2rem;
+                cursor: pointer;
+              }
+              .album-title {
+                font-size: 1.6rem;
+                font-family: "poppins-light";
+                margin: 0;
+                color: white;
+                padding-top: 0.5rem;
+                display: inline-block;
+                width: fit-content;
+                cursor: pointer;
+              }
+              .album-author {
+                font-size: 1.4rem;
+                font-family: "poppins-light";
+                margin: 0;
+                color: rgb(195, 195, 195);
+                display: inline-block;
+                width: fit-content;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        //trending-songs-list
+        .ts-wrap {
+          padding: 2rem;
+          .ts-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .ts-title {
+              font-size: 1.6rem;
+              font-family: "poppins-light";
+              margin: 0;
+              color: white;
+              padding: 1rem;
+            }
+            .ts-view-all {
+              border: none;
+              background-color: transparent;
+              font-size: 1.4rem;
+              color: gray;
+              font-family: "poppins-light";
+              padding: 1rem 0;
+              margin: 0 1rem;
+              position: relative;
+              transition: all 0.3s ease;
+              &::after {
+                content: "";
+                position: absolute;
+                height: 0.1rem;
+                width: 0;
+                bottom: 0;
+                left: 0;
+                background-color: white;
+                transition: all 0.3s ease;
+              }
+              &:hover {
+                color: white;
+                transition: all 0.3s ease;
+                &::after {
+                  width: 100%;
+                  transition: all 0.3s ease;
+                }
+              }
+            }
+          }
+          .ts-list {
+            ul {
+              margin: 0;
+              padding: 1rem;
+              list-style: none;
+              li {
+                padding: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: "poppins-light";
+                transition: all 0.3s ease;
+                border-bottom: 1px solid #363a45;
+                cursor: pointer;
+                .song-wrap {
+                  display: flex;
+                  align-items: center;
+                  transition: all 0.3s ease;
+                  .ts-number {
+                    padding: 0.5rem;
+                    font-size: 1.6rem;
+                    color: #363a45;
+                    transition: all 0.3s ease;
+                  }
+                  .song-info {
+                    padding: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    transition: all 0.3s ease;
+                    .song-img-wrap {
+                      padding: 0.5rem;
+                      img {
+                        height: 5rem;
+                        width: 5rem;
+                      }
+                    }
+                    .song-info-wrap {
+                      padding: 0.5rem;
+                      .song-title {
+                        font-size: 1.6rem;
+                        color: #363a45;
+                        margin: 0;
+                        transition: all 0.3s ease;
+                      }
+                      .song-author {
+                        font-size: 1.2rem;
+                        color: #363a45;
+                        margin: 0;
+                        transition: all 0.3s ease;
+                      }
+                    }
+                  }
+                }
+                .artist-wrap {
+                  padding: 0.5rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  svg {
+                    fill: #363a45 !important;
+                    transition: all 0.3s ease;
+                  }
+                  .artist-name {
+                    font-size: 1.4rem;
+                    color: #363a45;
+                    transition: all 0.3s ease;
+                  }
+                }
+                .streams-wrap {
+                  padding: 0.5rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  svg {
+                    fill: #363a45 !important;
+                    transition: all 0.3s ease;
+                  }
+                  .streams-no {
+                    font-size: 1.4rem;
+                    color: #363a45;
+                    transition: all 0.3s ease;
+                  }
+                }
+                .song-category {
+                  padding: 0.5rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  svg {
+                    fill: #363a45 !important;
+                    transition: all 0.3s ease;
+                  }
+                  .category-name {
+                    font-size: 1.4rem;
+                    color: #363a45;
+                    transition: all 0.3s ease;
+                  }
+                }
+                .runtime-wrap {
+                  padding: 0.5rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  svg {
+                    fill: #363a45 !important;
+                    transition: all 0.3s ease;
+                  }
+                  .runtime-no {
+                    font-size: 1.4rem;
+                    color: #363a45;
+                    transition: all 0.3s ease;
+                  }
+                }
+                .favourite {
+                  padding: 0.5rem;
+                  svg {
+                    fill: #363a45 !important;
+                    transition: all 0.3s ease;
+                    height: 2rem !important;
+                    width: 2rem !important;
+                  }
+                  &.active {
+                    svg {
+                      fill: red !important;
+                    }
+                  }
+                }
+                &:hover {
+                  border-bottom: 1px solid white;
+                  .ts-number,
+                  .song-title,
+                  .song-author,
+                  .artist-name,
+                  .streams-no,
+                  .category-name,
+                  .runtime-no {
+                    color: white !important;
+                  }
+                  svg {
+                    fill: white !important;
+                  }
+                }
+                &.active {
+                  border-bottom: 1px solid white;
+                  .ts-number,
+                  .song-title,
+                  .song-author,
+                  .artist-name,
+                  .streams-no,
+                  .category-name,
+                  .runtime-no {
+                    color: white !important;
+                  }
+                  svg {
+                    fill: white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      //music player
+      footer {
+        position: sticky;
+        bottom: 0px;
+        max-width: 1210px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #363a45;
+        padding: 1rem 2rem;
+        .song-info {
+          display: flex;
+          align-items: center;
+          .song-img {
+            padding: 0.5rem;
+            border-radius: 2rem;
+            height: 4rem;
+            width: 4rem;
+            img {
+              height: 100%;
+              width: 100%;
+              cursor: pointer;
+            }
+          }
+          .song-details {
+            .song-name {
+              font-size: 1.6rem;
+              color: white;
+              margin: 0;
+              font-family: "poppins-light";
+              cursor: pointer;
+            }
+            .song-artist {
+              font-size: 1.2rem;
+              color: white;
+              margin: 0;
+              font-family: "poppins-light";
+              cursor: pointer;
+            }
+          }
+        }
+        .control-btns {
+          display: flex;
+          gap: 1.5rem;
+          align-items: center;
+          svg {
+            fill: white !important;
+            height: 2rem !important;
+            width: 2rem !important;
+            cursor: pointer;
+          }
+          span {
+            svg {
+              path {
+                fill: white !important;
+              }
+            }
+          }
+        }
+        .track-record {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          .currentTime,
+          .totalTime {
+            font-size: 1.4rem;
+            color: white;
+            font-family: "poppins-light";
+          }
+          .runtime{
+            svg{
+              height: 3rem !important;
+              width: 2rem !important;
+              fill: white !important;
+            }
+          }
+        }
+        .options {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          svg {
+            fill: white !important;
+            height: 2rem !important;
+            width: 2rem !important;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
