@@ -1,7 +1,7 @@
 "use client";
-import { setActiveSong } from "@/Redux-Store/slices/ActiveSong";
+import { setRecentlyPlayed } from "@/Redux-Store/slices/RecentlyPlayed";
 import Image from "next/image";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import {
   FaHeart,
   FaPause,
@@ -17,35 +17,17 @@ import { RxLoop } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 
 function Player() {
-  const dispatch = useDispatch();
+
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    const fetchSongData = async () => {
-      try {
-        const response = await fetch(
-          "https://api.jamendo.com/v3.0/albums/tracks/?client_id=dda613cd&format=jsonpretty&limit=1&artist_name=we+are+fm"
-        );
-        const result = await response.json();
-        console.log("API Response:", result);
-        if (result.results && result.results.length > 0) {
-          dispatch(setActiveSong(result.results[0]));
-        } else {
-          console.error("No results found in API response.");
-        }
-      } catch (error) {
-        console.error("Error fetching song data:", error);
-      }
-    };
-
-    fetchSongData();
-  }, [dispatch]);
+  const dispatch = useDispatch();
 
   const { ActiveSongState } = useSelector((store) => store.active);
-  console.log("Active Song State:", ActiveSongState);
+  const {RecentlyPlayedSongs} = useSelector((store) => store.recent);
 
   const handlePlayPause = () => {
+    dispatch(setRecentlyPlayed(ActiveSongState));
+    console.log(RecentlyPlayedSongs);
     if (isPlaying) {
       audioRef.current.pause();
     } else {
@@ -56,11 +38,11 @@ function Player() {
 
   return (
     <footer>
-      <div className="song-info">
+      <div className="song-info col-4">
         <div className="song-img">
           {ActiveSongState.image && (
             <Image
-              src={""}
+              src={ActiveSongState.image}
               alt="Song-Image"
               height={500}
               width={500}
@@ -72,7 +54,7 @@ function Player() {
           <p className="song-artist">{ActiveSongState.artist_name}</p>
         </div>
       </div>
-      <div className="control-btns">
+      <div className="control-btns col-3 justify-content-center">
         <FaRandom />
         <MdSkipPrevious />
         {isPlaying ? (
@@ -85,21 +67,21 @@ function Player() {
           <RxLoop />
         </span>
       </div>
-      <div className="track-record">
+      <div className="track-record col-3 justify-content-center">
         <span className="currentTime">0:00</span>
         <span className="runtime"></span>
         <span className="totalTime">2:34</span>
       </div>
-      <div className="options">
+      <div className="options col-2 justify-content-center">
         <FaVolumeMute />
         {/* <FaVolumeOff />
         <FaVolumeDown />
         <FaVolumeUp /> */}
         <FaHeart />
       </div>
-      {ActiveSongState.tracks && ActiveSongState.tracks.length > 0 && (
-        <audio ref={audioRef} src={ActiveSongState.tracks[0].audio} />
-      )}
+      
+        <audio ref={audioRef} src={ActiveSongState.audio} />
+      
     </footer>
   );
 }

@@ -274,8 +274,19 @@ body {
           }
           &.active {
             color: white;
-            border-bottom: 1px solid white;
             transition: all 0.4s ease;
+            &::after{
+              width: 100%;
+            }
+            svg {
+              fill: white !important;
+              transition: all 0.4s ease;
+            }
+          }
+          &.menu {
+            color: white;
+            transition: all 0.4s ease;
+            
             svg {
               fill: white !important;
               transition: all 0.4s ease;
@@ -532,6 +543,9 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background-color: black;
             .ts-title {
               font-size: 1.6rem;
               font-family: "poppins-light";
@@ -574,6 +588,12 @@ body {
               margin: 0;
               padding: 1rem;
               list-style: none;
+              overflow: hidden;
+              height: 990px;
+              &.view-all{
+                height: fit-content;
+                overflow: unset;
+              }
               li {
                 padding: 1rem;
                 display: flex;
@@ -637,7 +657,7 @@ body {
                     transition: all 0.3s ease;
                   }
                 }
-                .streams-wrap {
+                .likes-wrap {
                   padding: 0.5rem;
                   display: flex;
                   align-items: center;
@@ -646,13 +666,13 @@ body {
                     fill: #363a45 !important;
                     transition: all 0.3s ease;
                   }
-                  .streams-no {
+                  .likes-no {
                     font-size: 1.4rem;
                     color: #363a45;
                     transition: all 0.3s ease;
                   }
                 }
-                .song-category {
+                .song-dislikes {
                   padding: 0.5rem;
                   display: flex;
                   align-items: center;
@@ -661,7 +681,7 @@ body {
                     fill: #363a45 !important;
                     transition: all 0.3s ease;
                   }
-                  .category-name {
+                  .dislikes-name {
                     font-size: 1.4rem;
                     color: #363a45;
                     transition: all 0.3s ease;
@@ -702,8 +722,8 @@ body {
                   .song-title,
                   .song-author,
                   .artist-name,
-                  .streams-no,
-                  .category-name,
+                  .likes-no,
+                  .dislikes-name,
                   .runtime-no {
                     color: white !important;
                   }
@@ -717,8 +737,8 @@ body {
                   .song-title,
                   .song-author,
                   .artist-name,
-                  .streams-no,
-                  .category-name,
+                  .likes-no,
+                  .dislikes-name,
                   .runtime-no {
                     color: white !important;
                   }
@@ -736,7 +756,6 @@ body {
       footer {
         position: sticky;
         bottom: 0px;
-        max-width: 1210px;
         display: flex;
         align-items: center;
         justify-content: space-between;

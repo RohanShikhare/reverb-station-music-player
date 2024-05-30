@@ -271,10 +271,20 @@ body {
 }
 .day main nav ul li.active {
   color: white;
-  border-bottom: 1px solid white;
   transition: all 0.4s ease;
 }
+.day main nav ul li.active::after {
+  width: 100%;
+}
 .day main nav ul li.active svg {
+  fill: white !important;
+  transition: all 0.4s ease;
+}
+.day main nav ul li.menu {
+  color: white;
+  transition: all 0.4s ease;
+}
+.day main nav ul li.menu svg {
   fill: white !important;
   transition: all 0.4s ease;
 }
@@ -515,6 +525,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: black;
 }
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-topbar .ts-title {
   font-size: 1.6rem;
@@ -556,6 +569,13 @@ body {
   margin: 0;
   padding: 1rem;
   list-style: none;
+  overflow: hidden;
+  height: 990px;
+}
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul.view-all {
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: unset;
 }
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li {
   padding: 1rem;
@@ -621,32 +641,32 @@ body {
   color: #363a45;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .streams-wrap {
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .likes-wrap {
   padding: 0.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .streams-wrap svg {
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .likes-wrap svg {
   fill: #363a45 !important;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .streams-wrap .streams-no {
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .likes-wrap .likes-no {
   font-size: 1.4rem;
   color: #363a45;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-category {
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-dislikes {
   padding: 0.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-category svg {
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-dislikes svg {
   fill: #363a45 !important;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-category .category-name {
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li .song-dislikes .dislikes-name {
   font-size: 1.4rem;
   color: #363a45;
   transition: all 0.3s ease;
@@ -685,8 +705,8 @@ body {
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .song-title,
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .song-author,
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .artist-name,
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .streams-no,
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .category-name,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .likes-no,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .dislikes-name,
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li:hover .runtime-no {
   color: white !important;
 }
@@ -700,8 +720,8 @@ body {
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .song-title,
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .song-author,
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .artist-name,
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .streams-no,
-.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .category-name,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .likes-no,
+.day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .dislikes-name,
 .day main .Main-Content .Trending-Wrap .ts-wrap .ts-list ul li.active .runtime-no {
   color: white !important;
 }
@@ -711,7 +731,6 @@ body {
 .day main .Main-Content footer {
   position: sticky;
   bottom: 0px;
-  max-width: 1210px;
   display: flex;
   align-items: center;
   justify-content: space-between;
