@@ -3,11 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const RecentlyPlayed = createSlice({
   name: "recentlyPlayedSong",
   initialState: {
-    RecentlyPlayedSongs: [],    
+    RecentlyPlayedSongs: [],
   },
   reducers: {
     setRecentlyPlayed: (state, action) => {
-      state.RecentlyPlayedSongs.push(action.payload);
+      if (!state.RecentlyPlayedSongs.includes(action.payload)) {
+        state.RecentlyPlayedSongs.push(action.payload);
+      }
     },
   },
 });

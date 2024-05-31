@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import card1 from "../../../Assets/img/trending1.jpg";
-import card2 from "../../../Assets/img/trending2.jpg";
-import card3 from "../../../Assets/img/trending3.jpg";
-import card4 from "../../../Assets/img/trending4.jpg";
+import card1 from "../../Assets/img/trending1.jpg";
+import card2 from "../../Assets/img/trending2.jpg";
+import card3 from "../../Assets/img/trending3.jpg";
+import card4 from "../../Assets/img/trending4.jpg";
 import Image from "next/image";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowCircleLeft } from "react-icons/fa";
@@ -80,7 +80,7 @@ function AlbumCarousel() {
   return (
     <div className="slider-container">
       <div className="slider-topbar">
-        <p className="slider-title">Best Albums of All Time</p>
+        <p className="slider-title">Albums You've Never Heard Before</p>
         <div className="buttons">
           <button onClick={handlePrev} disabled={startIndex === 0}>
             <FaArrowCircleLeft />

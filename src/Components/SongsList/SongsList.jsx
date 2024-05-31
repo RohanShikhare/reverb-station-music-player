@@ -1,39 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
 import Image from "next/image";
 import { FaHeart, FaRegClock, FaUser } from "react-icons/fa";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
-import { setTrendingSongs } from "@/Redux-Store/slices/TrendingSlice";
 import { setActiveSong } from "@/Redux-Store/slices/ActiveSong";
+import { useDispatch } from "react-redux";
 
-function TrendingSongs() {
-  const dispatch = useDispatch();
-  const { trendingSongs } = useSelector((state) => state.trending);
+function SongsList({ what, title, button }) {
   const [viewAll, setViewAll] = useState(false);
   const showAll = () => {
     setViewAll(!viewAll);
   };
-
-  useEffect(() => {
-    const fetchTrendingSongs = async () => {
-      try {
-        const response = await fetch(
-          "https://api.jamendo.com/v3.0/users/tracks/?client_id=dda613cd&format=jsonpretty&limit=49&order=rating_desc+updatedate_desc&id=972174"
-        );
-        if (response.ok) {
-          const data = await response.json();
-          dispatch(setTrendingSongs(data.results[0].tracks));
-        } else {
-          throw new Error("Failed to fetch data");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchTrendingSongs();
-  }, [dispatch]);
+  const dispatch = useDispatch();
 
   function secondsToMinutes(seconds) {
     let minutes = Math.floor(seconds / 60);
@@ -45,19 +23,28 @@ function TrendingSongs() {
   }
 
   return (
-    <div className="ts-wrap">
-      <div className="ts-topbar">
-        <p className="ts-title">Discover Underated Tracks</p>
-        <button className="ts-view-all" onClick={() => showAll()}>
-          {viewAll ? "View Less" : "View All"}
-        </button>
+    <div className="ls-wrap">
+      <div className="ls-topbar">
+        <p className="ls-title">{title}</p>
+        {button === "view-button" ? (
+          <button className="ls-view-all" onClick={() => showAll()}>
+            {viewAll ? "View Less" : "View All"}
+          </button>
+        ) : (
+          <span></span>
+        )}
       </div>
-      <div className="ts-list">
+      <div className="ls-list">
         <ul className={`${viewAll ? "view-all" : ""}`}>
-          {trendingSongs.map((song, index) => (
-            <li key={index} onClick={() => {dispatch(setActiveSong(song))}} >
+          {what.map((song, index) => (
+            <li
+              key={index}
+              onClick={() => {
+                dispatch(setActiveSong(song));
+              }}
+            >
               <div className="song-wrap col-4">
-                <span className="ts-number">#{index + 1}</span>
+                <span className="ls-number">#{index + 1}</span>
                 <div className="song-info">
                   <div className="song-img-wrap">
                     <Image
@@ -104,4 +91,4 @@ function TrendingSongs() {
   );
 }
 
-export default TrendingSongs;
+export default SongsList;

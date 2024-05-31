@@ -1,7 +1,7 @@
 "use client";
 import { setRecentlyPlayed } from "@/Redux-Store/slices/RecentlyPlayed";
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   FaHeart,
   FaPause,
@@ -17,17 +17,25 @@ import { RxLoop } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 
 function Player() {
-
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasAddedToRecentlyPlayed, setHasAddedToRecentlyPlayed] = useState(false);
   const dispatch = useDispatch();
 
   const { ActiveSongState } = useSelector((store) => store.active);
-  const {RecentlyPlayedSongs} = useSelector((store) => store.recent);
+  const { RecentlyPlayedSongs } = useSelector((store) => store.recent);
+
+  useEffect(() => {
+    setHasAddedToRecentlyPlayed(false);
+  }, [ActiveSongState]);
 
   const handlePlayPause = () => {
-    dispatch(setRecentlyPlayed(ActiveSongState));
-    console.log(RecentlyPlayedSongs);
+    if (!hasAddedToRecentlyPlayed && ActiveSongState) {
+      dispatch(setRecentlyPlayed(ActiveSongState));
+      setHasAddedToRecentlyPlayed(true);
+      console.log(RecentlyPlayedSongs);
+    }
+
     if (isPlaying) {
       audioRef.current.pause();
     } else {
@@ -79,9 +87,8 @@ function Player() {
         <FaVolumeUp /> */}
         <FaHeart />
       </div>
-      
-        <audio ref={audioRef} src={ActiveSongState.audio} />
-      
+
+      <audio ref={audioRef} src={ActiveSongState.audio} />
     </footer>
   );
 }

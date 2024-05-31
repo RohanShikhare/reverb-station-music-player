@@ -271,6 +271,11 @@ body {
             &::after {
               width: 100%;
             }
+            .menu{
+              &::after {
+                width: 0;
+              }
+            }
           }
           &.active {
             color: white;
@@ -290,6 +295,9 @@ body {
             svg {
               fill: white !important;
               transition: all 0.4s ease;
+            }
+            &::after{
+              width: 0;
             }
           }
           .sideTooltip {
@@ -319,6 +327,11 @@ body {
               border-style: solid;
               border-color: transparent white transparent transparent;
             }
+          }
+          a{
+            text-decoration: none;
+            color: unset;
+            margin: 0;
           }
         }
       }
@@ -356,8 +369,8 @@ body {
       overflow-x: hidden;
       overflow-y: scroll;
       position: relative;
-      //Trending Component
-      .Trending-Wrap {
+      //Actual Page Component
+      .page-Wrap {
         background-color: black;
         padding-bottom: 5.6rem;
         //homeSlider
@@ -537,23 +550,23 @@ body {
           }
         }
         //trending-songs-list
-        .ts-wrap {
+        .ls-wrap {
           padding: 2rem;
-          .ts-topbar {
+          .ls-topbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: sticky;
             top: 0;
             background-color: black;
-            .ts-title {
+            .ls-title {
               font-size: 1.6rem;
               font-family: "poppins-light";
               margin: 0;
               color: white;
               padding: 1rem;
             }
-            .ts-view-all {
+            .ls-view-all {
               border: none;
               background-color: transparent;
               font-size: 1.4rem;
@@ -583,15 +596,15 @@ body {
               }
             }
           }
-          .ts-list {
+          .ls-list {
             ul {
               margin: 0;
               padding: 1rem;
               list-style: none;
               overflow: hidden;
-              height: 990px;
+              max-height: 990px;
               &.view-all{
-                height: fit-content;
+                max-height: fit-content;
                 overflow: unset;
               }
               li {
@@ -607,7 +620,7 @@ body {
                   display: flex;
                   align-items: center;
                   transition: all 0.3s ease;
-                  .ts-number {
+                  .ls-number {
                     padding: 0.5rem;
                     font-size: 1.6rem;
                     color: #363a45;
@@ -718,7 +731,7 @@ body {
                 }
                 &:hover {
                   border-bottom: 1px solid white;
-                  .ts-number,
+                  .ls-number,
                   .song-title,
                   .song-author,
                   .artist-name,
@@ -733,7 +746,7 @@ body {
                 }
                 &.active {
                   border-bottom: 1px solid white;
-                  .ts-number,
+                  .ls-number,
                   .song-title,
                   .song-author,
                   .artist-name,
@@ -776,6 +789,7 @@ body {
             }
           }
           .song-details {
+            padding: 0 .5rem;
             .song-name {
               font-size: 1.6rem;
               color: white;

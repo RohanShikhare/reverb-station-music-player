@@ -9,35 +9,58 @@ import { IoCloudOfflineOutline } from "react-icons/io5";
 import { MdOutlineQueueMusic } from "react-icons/md";
 import { SideBarAction } from "../../Redux-Store/actions/SideBarAction";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 function Sidebar() {
   const { ToggleSidebar } = SideBarAction();
-  const {isSidebarOpen} = useSelector((store)=>store.sidebar);
+  const { isSidebarOpen } = useSelector((store) => store.sidebar);
   return (
-    <nav className={`col-lg-2 ${isSidebarOpen === false ? "closed" : "" }`}>
+    <nav className={`col-lg-2 ${isSidebarOpen === false ? "closed" : ""}`}>
       <ul>
-        <li onClick={() => ToggleSidebar()}>
-          <CgMenuGridR /> <span>Main Menu</span> <div className="sideTooltip">Main Menu</div>
+        <li onClick={() => ToggleSidebar()} className="menu">
+          <CgMenuGridR /> <span>Main Menu</span>{" "}
+          <div className="sideTooltip">Main Menu</div>
+        </li>
+        <li className="active">
+          <Link href="/">
+            <FaFireAlt /> <span>Discover</span>{" "}
+            <div className="sideTooltip">Discover</div>
+          </Link>
         </li>
         <li>
-          <FaFireAlt /> <span>Trending</span> <div className="sideTooltip">Trending</div>
+          <Link href="/">
+            <BiCategoryAlt /> <span>Genres</span>{" "}
+            <div className="sideTooltip">Genres</div>
+          </Link>
         </li>
         <li>
-          <BiCategoryAlt /> <span>Genres</span> <div className="sideTooltip">Genres</div>
+          <Link href="/">
+            <GiMusicalScore /> <span>Artists</span>{" "}
+            <div className="sideTooltip">Artists</div>
+          </Link>
         </li>
         <li>
-          <GiMusicalScore /> <span>Artists</span> <div className="sideTooltip">Artists</div>
+          <Link href="/">
+            <FaRegHeart /> <span>Favourites</span>{" "}
+            <div className="sideTooltip">Favourites</div>
+          </Link>
         </li>
         <li>
-          <FaRegHeart /> <span>Favourites</span> <div className="sideTooltip">Favourites</div>
+          <Link href="/recentlyPlayed">
+            <FaClockRotateLeft /> <span>Recently Played</span>{" "}
+            <div className="sideTooltip">Recently Played</div>
+          </Link>
         </li>
         <li>
-          <FaClockRotateLeft /> <span>Recently Played</span> <div className="sideTooltip">Recently Played</div>
+          <Link href="/">
+            <MdOutlineQueueMusic /> <span>Queue</span>{" "}
+            <div className="sideTooltip">Queue</div>
+          </Link>
         </li>
         <li>
-          <MdOutlineQueueMusic /> <span>Queue</span> <div className="sideTooltip">Queue</div>
-        </li>
-        <li>
-            <IoCloudOfflineOutline /> <span>Offline Music</span> <div className="sideTooltip">Offline Music</div>
+          <Link href="/">
+            <IoCloudOfflineOutline /> <span>Offline Music</span>{" "}
+            <div className="sideTooltip">Offline Music</div>
+          </Link>
         </li>
       </ul>
     </nav>
