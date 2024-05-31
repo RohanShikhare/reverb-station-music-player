@@ -27,7 +27,6 @@ function Player() {
 
   useEffect(() => {
     setHasAddedToRecentlyPlayed(false);
-    setIsPlaying(false);
   }, [ActiveSongState]);
 
   const handlePlayPause = () => {
@@ -59,8 +58,8 @@ function Player() {
           )}
         </div>
         <div className="song-details">
-          <p className="song-name">{ActiveSongState.name}</p>
-          <p className="song-artist">{ActiveSongState.artist_name}</p>
+          <p className="song-name">{ActiveSongState.name || "No Song Selected" }</p>
+          <p className="song-artist">{ActiveSongState.artist_name || "No Song Selected"}</p>
         </div>
       </div>
       <div className="control-btns col-3 justify-content-center">

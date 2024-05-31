@@ -4,14 +4,14 @@ import AlbumCarousel from '../AlbumCarousel/AlbumCarousel'
 import SongsList from '../SongsList/SongsList'
 import { useSelector } from 'react-redux'
 
-function RecentlyPlayed() {
-    const {RecentlyPlayedSongs} = useSelector((store)=> store.recent)
+function Favourites() {
+    const {FavouriteSongsList} = useSelector((store)=> store.favourite)
   return (
     <div className='page-Wrap'>
     <AlbumCarousel />
-      <SongsList what={RecentlyPlayedSongs} title={"Recently Played Tracks"}  />
+      <SongsList what={FavouriteSongsList} title={"Favourite Tracks"}  />
     </div>
   )
 }
 
-export default RecentlyPlayed
+export default Favourites

@@ -31,7 +31,7 @@ function Trending() {
     <div className="page-Wrap">
       <HomeSlider />
       <AlbumCarousel />
-      <SongsList what={trendingSongs} title={"Discover Underated Tracks"} button={"view-button"} />
+      <SongsList what={trendingSongs} title={"Discover Underated Tracks"}  />
     </div>
   );
 }

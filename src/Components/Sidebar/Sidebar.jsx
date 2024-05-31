@@ -16,7 +16,7 @@ const menuItems = [
   { icon: <FaFireAlt />, label: "Discover", href: "/" },
   { icon: <BiCategoryAlt />, label: "Genres", href: "/" },
   { icon: <GiMusicalScore />, label: "Artists", href: "/" },
-  { icon: <FaRegHeart />, label: "Favourites", href: "/" },
+  { icon: <FaRegHeart />, label: "Favourites", href: "/favourites" },
   { icon: <FaClockRotateLeft />, label: "Recently Played", href: "/recentlyPlayed" },
   { icon: <MdOutlineQueueMusic />, label: "Queue", href: "/" },
   { icon: <IoCloudOfflineOutline />, label: "Offline Music", href: "/" },
