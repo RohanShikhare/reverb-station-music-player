@@ -27,6 +27,7 @@ function Player() {
 
   useEffect(() => {
     setHasAddedToRecentlyPlayed(false);
+    setIsPlaying(false);
   }, [ActiveSongState]);
 
   const handlePlayPause = () => {

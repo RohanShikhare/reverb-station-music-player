@@ -10,58 +10,41 @@ import { MdOutlineQueueMusic } from "react-icons/md";
 import { SideBarAction } from "../../Redux-Store/actions/SideBarAction";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const menuItems = [
+  { icon: <FaFireAlt />, label: "Discover", href: "/" },
+  { icon: <BiCategoryAlt />, label: "Genres", href: "/" },
+  { icon: <GiMusicalScore />, label: "Artists", href: "/" },
+  { icon: <FaRegHeart />, label: "Favourites", href: "/" },
+  { icon: <FaClockRotateLeft />, label: "Recently Played", href: "/recentlyPlayed" },
+  { icon: <MdOutlineQueueMusic />, label: "Queue", href: "/" },
+  { icon: <IoCloudOfflineOutline />, label: "Offline Music", href: "/" },
+];
+
 function Sidebar() {
   const { ToggleSidebar } = SideBarAction();
   const { isSidebarOpen } = useSelector((store) => store.sidebar);
+  const pathname = usePathname();
+
   return (
     <nav className={`col-lg-2 ${isSidebarOpen === false ? "closed" : ""}`}>
       <ul>
         <li onClick={() => ToggleSidebar()} className="menu">
-          <CgMenuGridR /> <span>Main Menu</span>{" "}
+          <CgMenuGridR /> <span>Main Menu</span>
           <div className="sideTooltip">Main Menu</div>
         </li>
-        <li className="active">
-          <Link href="/">
-            <FaFireAlt /> <span>Discover</span>{" "}
-            <div className="sideTooltip">Discover</div>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <BiCategoryAlt /> <span>Genres</span>{" "}
-            <div className="sideTooltip">Genres</div>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <GiMusicalScore /> <span>Artists</span>{" "}
-            <div className="sideTooltip">Artists</div>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <FaRegHeart /> <span>Favourites</span>{" "}
-            <div className="sideTooltip">Favourites</div>
-          </Link>
-        </li>
-        <li>
-          <Link href="/recentlyPlayed">
-            <FaClockRotateLeft /> <span>Recently Played</span>{" "}
-            <div className="sideTooltip">Recently Played</div>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <MdOutlineQueueMusic /> <span>Queue</span>{" "}
-            <div className="sideTooltip">Queue</div>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <IoCloudOfflineOutline /> <span>Offline Music</span>{" "}
-            <div className="sideTooltip">Offline Music</div>
-          </Link>
-        </li>
+        {menuItems.map((item, index) => (
+          <li
+            key={index}
+            className={pathname === item.href ? "active" : ""}
+          >
+            <Link href={item.href}>
+              {item.icon} <span>{item.label}</span>
+              <div className="sideTooltip">{item.label}</div>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

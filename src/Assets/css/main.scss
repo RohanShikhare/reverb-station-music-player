@@ -271,7 +271,7 @@ body {
             &::after {
               width: 100%;
             }
-            .menu{
+            .menu {
               &::after {
                 width: 0;
               }
@@ -280,7 +280,7 @@ body {
           &.active {
             color: white;
             transition: all 0.4s ease;
-            &::after{
+            &::after {
               width: 100%;
             }
             svg {
@@ -291,12 +291,12 @@ body {
           &.menu {
             color: white;
             transition: all 0.4s ease;
-            
+
             svg {
               fill: white !important;
               transition: all 0.4s ease;
             }
-            &::after{
+            &::after {
               width: 0;
             }
           }
@@ -328,7 +328,7 @@ body {
               border-color: transparent white transparent transparent;
             }
           }
-          a{
+          a {
             text-decoration: none;
             color: unset;
             margin: 0;
@@ -517,7 +517,8 @@ body {
               transition: all 0.3s ease;
               &:hover {
                 background-color: white;
-                .album-author,.album-title{
+                .album-author,
+                .album-title {
                   color: black;
                 }
               }
@@ -603,7 +604,7 @@ body {
               list-style: none;
               overflow: hidden;
               max-height: 990px;
-              &.view-all{
+              &.view-all {
                 max-height: fit-content;
                 overflow: unset;
               }
@@ -615,11 +616,11 @@ body {
                 font-family: "poppins-light";
                 transition: all 0.3s ease;
                 border-bottom: 1px solid #363a45;
-                cursor: pointer;
                 .song-wrap {
                   display: flex;
                   align-items: center;
                   transition: all 0.3s ease;
+                  cursor: pointer;
                   .ls-number {
                     padding: 0.5rem;
                     font-size: 1.6rem;
@@ -670,7 +671,7 @@ body {
                     transition: all 0.3s ease;
                   }
                 }
-                .likes-wrap {
+                .release-wrap {
                   padding: 0.5rem;
                   display: flex;
                   align-items: center;
@@ -679,25 +680,33 @@ body {
                     fill: #363a45 !important;
                     transition: all 0.3s ease;
                   }
-                  .likes-no {
+                  .release-no {
                     font-size: 1.4rem;
                     color: #363a45;
                     transition: all 0.3s ease;
                   }
                 }
-                .song-dislikes {
+                .download-wrap {
                   padding: 0.5rem;
                   display: flex;
                   align-items: center;
                   gap: 1rem;
-                  svg {
-                    fill: #363a45 !important;
-                    transition: all 0.3s ease;
-                  }
-                  .dislikes-name {
-                    font-size: 1.4rem;
-                    color: #363a45;
-                    transition: all 0.3s ease;
+                  cursor: pointer;
+                  a {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    color: unset;
+                    text-decoration: none;
+                    svg {
+                      fill: #363a45 !important;
+                      transition: all 0.3s ease;
+                    }
+                    .download-label {
+                      font-size: 1.4rem;
+                      color: #363a45;
+                      transition: all 0.3s ease;
+                    }
                   }
                 }
                 .runtime-wrap {
@@ -717,13 +726,14 @@ body {
                 }
                 .favourite {
                   padding: 0.5rem;
+                  cursor: pointer;
                   svg {
                     fill: #363a45 !important;
                     transition: all 0.3s ease;
                     height: 2rem !important;
                     width: 2rem !important;
                   }
-                  &.active {
+                  &.fav-active {
                     svg {
                       fill: red !important;
                     }
@@ -735,13 +745,18 @@ body {
                   .song-title,
                   .song-author,
                   .artist-name,
-                  .likes-no,
-                  .dislikes-name,
+                  .download-label,
+                  .release-no,
                   .runtime-no {
                     color: white !important;
                   }
                   svg {
                     fill: white !important;
+                  }
+                  a {
+                    svg {
+                      fill: white !important;
+                    }
                   }
                 }
                 &.active {
@@ -750,16 +765,29 @@ body {
                   .song-title,
                   .song-author,
                   .artist-name,
-                  .likes-no,
-                  .dislikes-name,
+                  .download-label,
+                  .release-no,
                   .runtime-no {
                     color: white !important;
                   }
                   svg {
                     fill: white !important;
                   }
+                  a {
+                    svg {
+                      fill: white !important;
+                    }
+                  }
                 }
               }
+            }
+            .no-songs {
+              font-size: 1.8rem;
+              font-family: "poppins-light";
+              color: white;
+              text-align: center;
+              margin: 1rem 0;
+              padding: 0.5rem;
             }
           }
         }
@@ -789,7 +817,7 @@ body {
             }
           }
           .song-details {
-            padding: 0 .5rem;
+            padding: 0 0.5rem;
             .song-name {
               font-size: 1.6rem;
               color: white;
@@ -834,8 +862,8 @@ body {
             color: white;
             font-family: "poppins-light";
           }
-          .runtime{
-            svg{
+          .runtime {
+            svg {
               height: 3rem !important;
               width: 2rem !important;
               fill: white !important;

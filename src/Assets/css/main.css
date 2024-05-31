@@ -499,7 +499,8 @@ body {
 .day main .Main-Content .page-Wrap .slider-container .slider .card:hover {
   background-color: white;
 }
-.day main .Main-Content .page-Wrap .slider-container .slider .card:hover .album-author, .day main .Main-Content .page-Wrap .slider-container .slider .card:hover .album-title {
+.day main .Main-Content .page-Wrap .slider-container .slider .card:hover .album-author,
+.day main .Main-Content .page-Wrap .slider-container .slider .card:hover .album-title {
   color: black;
 }
 .day main .Main-Content .page-Wrap .slider-container .slider .card img {
@@ -596,12 +597,12 @@ body {
   font-family: "poppins-light";
   transition: all 0.3s ease;
   border-bottom: 1px solid #363a45;
-  cursor: pointer;
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .song-wrap {
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .song-wrap .ls-number {
   padding: 0.5rem;
@@ -652,32 +653,40 @@ body {
   color: #363a45;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .likes-wrap {
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .release-wrap {
   padding: 0.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .likes-wrap svg {
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .release-wrap svg {
   fill: #363a45 !important;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .likes-wrap .likes-no {
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .release-wrap .release-no {
   font-size: 1.4rem;
   color: #363a45;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .song-dislikes {
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .download-wrap {
   padding: 0.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  cursor: pointer;
 }
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .song-dislikes svg {
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .download-wrap a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: unset;
+  text-decoration: none;
+}
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .download-wrap a svg {
   fill: #363a45 !important;
   transition: all 0.3s ease;
 }
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .song-dislikes .dislikes-name {
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .download-wrap a .download-label {
   font-size: 1.4rem;
   color: #363a45;
   transition: all 0.3s ease;
@@ -699,6 +708,7 @@ body {
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .favourite {
   padding: 0.5rem;
+  cursor: pointer;
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .favourite svg {
   fill: #363a45 !important;
@@ -706,7 +716,7 @@ body {
   height: 2rem !important;
   width: 2rem !important;
 }
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .favourite.active svg {
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li .favourite.fav-active svg {
   fill: red !important;
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover {
@@ -716,12 +726,15 @@ body {
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .song-title,
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .song-author,
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .artist-name,
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .likes-no,
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .dislikes-name,
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .download-label,
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .release-no,
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover .runtime-no {
   color: white !important;
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover svg {
+  fill: white !important;
+}
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li:hover a svg {
   fill: white !important;
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active {
@@ -731,13 +744,24 @@ body {
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .song-title,
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .song-author,
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .artist-name,
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .likes-no,
-.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .dislikes-name,
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .download-label,
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .release-no,
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active .runtime-no {
   color: white !important;
 }
 .day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active svg {
   fill: white !important;
+}
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list ul li.active a svg {
+  fill: white !important;
+}
+.day main .Main-Content .page-Wrap .ls-wrap .ls-list .no-songs {
+  font-size: 1.8rem;
+  font-family: "poppins-light";
+  color: white;
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
 }
 .day main .Main-Content footer {
   position: sticky;

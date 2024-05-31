@@ -4,6 +4,7 @@ import SideBar from "./slices/SideBarSlice";
 import TrendingSlice from "./slices/TrendingSlice";
 import ActiveSong from "./slices/ActiveSong";
 import RecentlyPlayed from "./slices/RecentlyPlayed";
+import FavouriteSongs from "./slices/FavouriteSongs";
 
 const mainStore = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const mainStore = configureStore({
         trending: TrendingSlice.reducer,
         active: ActiveSong.reducer,
         recent: RecentlyPlayed.reducer,
+        favourite: FavouriteSongs.reducer,
     }
 });
 
